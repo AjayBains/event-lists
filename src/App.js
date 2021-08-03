@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Menu from "./components/Menu";
+
 import Listing from "./components/Listing";
+import Home from "./components/Home";
 
 function App() {
   const [isLoading, setISLoading] = useState(true);
   const [events, setEvents] = useState();
 
+  const url = "https://allevents.s3.amazonaws.com/tests/categories.json";
+
   const getEvents = async () => {
-    const response = await fetch(
-      "https://allevents.s3.amazonaws.com/tests/categories.json"
-    );
+    const response = await fetch(url);
     const eventsData = await response.json();
 
     setEvents(eventsData);
@@ -21,11 +22,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          {isLoading ? <h1>Loading...</h1> : <Menu events={events} />}
-        </Route>
-        <Route path="/:data">
-          <Listing />
+        <Route exact path="/:category">
+          {isLoading ? <h1>Loading...</h1> : <Home events={events} />}
         </Route>
       </Switch>
     </Router>

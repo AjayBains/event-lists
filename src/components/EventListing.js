@@ -7,9 +7,17 @@ import CardMedia from "@material-ui/core/CardMedia";
 // import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles({});
+import Avatar from "@material-ui/core/Avatar";
+
+const useStyles = makeStyles((theme) => ({
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+}));
 
 const EventListing = ({ eventList }) => {
+  const classes = useStyles();
   console.log(eventList);
   const [isList, setIsList] = useState(true);
 
