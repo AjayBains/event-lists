@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Listing from "./components/Listing";
 import Home from "./components/Home";
 
 function App() {

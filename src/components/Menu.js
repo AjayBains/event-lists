@@ -1,16 +1,8 @@
-import { Container, Card, CardContent } from "@material-ui/core";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ReorderIcon from "@material-ui/icons/Reorder";
-import {
-  Avatar,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-} from "@material-ui/core";
+
 const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(9),
@@ -45,8 +37,6 @@ const Menu = ({ events }) => {
       </div>
 
       <div className="logo">
-        {/* <Avatar src="eventsmanialogo.png" className={classes.large} /> */}
-
         <img src="eventsmanialogo.png" alt="logo" className="logoImg" />
       </div>
       <div className="menuList" id={isHidden ? "hidden" : ""}>
