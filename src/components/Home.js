@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
+import { Route, Redirect, useLocation } from "react-router-dom";
 import Listing from "./Listing";
 import Menu from "./Menu";
 
