@@ -34,10 +34,11 @@ const useStyles = makeStyles((theme) => ({
 const Menu = ({ events }) => {
   const classes = useStyles();
   const [isHidden, setIsHidden] = useState(true);
+
   // console.log(events);
   return (
     <div className="navbar">
-      <div classname="iconBox">
+      <div className="iconBox">
         <button onClick={() => setIsHidden(!isHidden)}>
           <ReorderIcon />
         </button>

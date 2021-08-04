@@ -14,6 +14,7 @@ function App() {
   const getEvents = async () => {
     const response = await fetch(url);
     const eventsData = await response.json();
+    console.log(eventsData);
 
     setEvents(eventsData);
     setISLoading(false);
@@ -21,11 +22,9 @@ function App() {
   useEffect(() => getEvents(), []);
   return (
     <Router>
-      <Switch>
-        <Route exact path="/:category">
-          {isLoading ? <h1>Loading...</h1> : <Home events={events} />}
-        </Route>
-      </Switch>
+      <Route path="/">
+        {isLoading ? <h1>Loading...</h1> : <Home events={events} />}
+      </Route>
     </Router>
   );
 }

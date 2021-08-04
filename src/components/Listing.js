@@ -47,12 +47,14 @@ const Listing = ({ events }) => {
   };
   // console.log(events);
   const location = useLocation(); // import from "react-router-dom";
+  console.log(location);
   // console.log("location.pathname", location.pathname);
   const cat = location.pathname.substring(1);
   // console.log(cat);
   const particularEvent = events.find((event) => event.category === cat);
 
   const { data: url } = particularEvent;
+
   // console.log(particularEvent, url);
   const getCategoryDetails = async () => {
     const response = await fetch(url);
@@ -63,7 +65,7 @@ const Listing = ({ events }) => {
   };
   useEffect(() => {
     getCategoryDetails();
-  }, [cat]);
+  }, []);
 
   return (
     <Container>
@@ -180,12 +182,7 @@ const Listing = ({ events }) => {
 
                     <CardContent>
                       {/* <img src={banner_url} alt="pic" style={{ width: "100%" }} /> */}
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="h2"
-                        textAlign="center"
-                      >
+                      <Typography gutterBottom variant="h5" component="h2">
                         {name}
                       </Typography>
                       <Typography
