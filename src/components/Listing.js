@@ -43,17 +43,16 @@ const Listing = ({ events }) => {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  // console.log(events);
-  const location = useLocation(); // import from "react-router-dom";
+
+  const location = useLocation();
   console.log(location);
-  // console.log("location.pathname", location.pathname);
+
   const cat = location.pathname.substring(1);
-  // console.log(cat);
+
   const particularEvent = events.find((event) => event.category === cat);
 
   const { data: url } = particularEvent;
 
-  // console.log(particularEvent, url);
   const getCategoryDetails = async () => {
     const response = await fetch(url);
     const details = await response.json();
@@ -63,7 +62,7 @@ const Listing = ({ events }) => {
   };
   useEffect(() => {
     getCategoryDetails();
-  }, []);
+  }, [location]);
 
   return (
     <Container>
